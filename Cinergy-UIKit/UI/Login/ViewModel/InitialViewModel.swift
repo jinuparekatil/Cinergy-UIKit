@@ -9,9 +9,15 @@ import Foundation
 import Combine
 import KeychainAccess
 
-class InitialViewModel: ObservableObject {
-    @Published var guest: Guest!
-    @Published var errorMessage: String?
+class InitialViewModel {
+     var guest: Guest!
+     var errorMessage: String?
+    var didLogin: Binding<Bool>
+    
+    init(didLogin: Binding<Bool>) {
+        self.didLogin = didLogin
+    }
+
     let baseURLString = Constants.Urls.baseURL
     let apiEndPoint: ApiEndPoints = .guestToken
     private var method: HTTPMethod = .post
@@ -49,10 +55,10 @@ class InitialViewModel: ObservableObject {
                         self.guest = fetchedPosts
                         if let token = self.guest.token {
                             do {
-                                try Keychain(service: "com.ios.Cinergy-UIKit").set(token, key: "authToken")
+                                try Keychain(service: Constants.Urls.keyChainKey).set(token, key: "authToken")
                                 let userId = try await self.loginWithToken(token: token)
-                                print(userId)
-
+                                Constants.Urls.userId = userId
+                                self.didLogin.value = true
                             } catch {
                                 print("Error saving token to keychain: \(error)")
                             }

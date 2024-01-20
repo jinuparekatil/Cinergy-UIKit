@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Cinergy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Cinergy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,6 +43,9 @@
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ux2-im-LEA">
                                 <rect key="frame" x="16" y="304" width="361" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="RVN-OP-F6L"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muC-Ex-zqg">
                                 <rect key="frame" x="47" y="480" width="299" height="50"/>
@@ -81,6 +85,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Continue As Guest">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="guestButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9zv-dW-Ri0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -88,7 +95,7 @@
                         <constraints>
                             <constraint firstItem="KiZ-an-aiD" firstAttribute="leading" secondItem="ux2-im-LEA" secondAttribute="leading" id="0Qr-YW-KfR"/>
                             <constraint firstItem="ux2-im-LEA" firstAttribute="centerX" secondItem="muC-Ex-zqg" secondAttribute="centerX" id="5IB-sg-Aie"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8Yb-23-6Ap" secondAttribute="bottom" constant="112" id="7bL-1f-hLG"/>
+                            <constraint firstItem="muC-Ex-zqg" firstAttribute="top" secondItem="ux2-im-LEA" secondAttribute="bottom" constant="48" id="83P-xT-1GP"/>
                             <constraint firstItem="8Yb-23-6Ap" firstAttribute="top" secondItem="2Zb-19-sFI" secondAttribute="bottom" constant="21" id="9QK-wF-YK1"/>
                             <constraint firstItem="2Zb-19-sFI" firstAttribute="trailing" secondItem="8Yb-23-6Ap" secondAttribute="trailing" id="9Xt-Dx-1ag"/>
                             <constraint firstItem="gMi-BZ-9RT" firstAttribute="top" secondItem="muC-Ex-zqg" secondAttribute="bottom" constant="27" id="AH6-VD-b9C"/>
@@ -101,7 +108,6 @@
                             <constraint firstItem="2Zb-19-sFI" firstAttribute="top" secondItem="gMi-BZ-9RT" secondAttribute="bottom" constant="16" id="NyF-Z1-FgV"/>
                             <constraint firstItem="bVs-4t-Ntf" firstAttribute="top" secondItem="HUU-Jj-bpc" secondAttribute="bottom" constant="20" id="O8j-Xh-Rxc"/>
                             <constraint firstItem="ux2-im-LEA" firstAttribute="top" secondItem="KiZ-an-aiD" secondAttribute="bottom" constant="38" id="Ohn-qk-ccP"/>
-                            <constraint firstItem="muC-Ex-zqg" firstAttribute="top" secondItem="ux2-im-LEA" secondAttribute="bottom" constant="48" id="PsK-rG-C3o"/>
                             <constraint firstItem="ux2-im-LEA" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Qbl-jj-YvG"/>
                             <constraint firstItem="muC-Ex-zqg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="S0L-wg-Kka"/>
                             <constraint firstItem="HUU-Jj-bpc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="11" id="Xcf-3K-K26"/>
@@ -117,6 +123,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-141.22137404580153" y="3.5211267605633805"/>
+        </scene>
+        <!--Escape Room View Controller-->
+        <scene sceneID="wAq-KC-aps">
+            <objects>
+                <viewController storyboardIdentifier="EscapeRoomViewControllerId" id="N0q-5Q-BVE" customClass="EscapeRoomViewController" customModule="Cinergy_UIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OzZ-Xf-tn3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="482-N5-gv6">
+                                <rect key="frame" x="5" y="64" width="380" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lw8-nY-2ys">
+                                    <size key="itemSize" width="197" height="363"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomCollectionViewCellId" id="L6o-J5-Zoi" customClass="CustomCollectionViewCell" customModule="Cinergy_UIKit" customModuleProvider="target">
+                                        <rect key="frame" x="91.666666666666671" y="0.0" width="197" height="450"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QRT-fC-ATG">
+                                            <rect key="frame" x="0.0" y="0.0" width="197" height="450"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZJ-ES-Sw2">
+                                                    <rect key="frame" x="10" y="10" width="177" height="374"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaE-Ys-0Cb">
+                                                    <rect key="frame" x="8" y="392" width="119" height="51"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="197" height="450"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="aZJ-ES-Sw2" id="JEC-fN-wK2"/>
+                                            <outlet property="titleLabel" destination="CaE-Ys-0Cb" id="dDn-Vo-Xbh"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iEV-rK-yFZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="482-N5-gv6" firstAttribute="bottom" secondItem="iEV-rK-yFZ" secondAttribute="bottom" constant="5" id="Ncc-tn-YpL"/>
+                            <constraint firstItem="482-N5-gv6" firstAttribute="leading" secondItem="iEV-rK-yFZ" secondAttribute="leading" constant="5" id="UnO-t3-AVe"/>
+                            <constraint firstItem="482-N5-gv6" firstAttribute="trailing" secondItem="iEV-rK-yFZ" secondAttribute="trailing" constant="-8" id="hgu-jU-Lfv"/>
+                            <constraint firstItem="482-N5-gv6" firstAttribute="top" secondItem="iEV-rK-yFZ" secondAttribute="top" constant="5" id="qNV-LX-nwU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="482-N5-gv6" id="sSH-fS-zov"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WfO-tH-pMp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="594.6564885496183" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.63378083709999999" green="0.77792137859999999" blue="0.34499424699999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

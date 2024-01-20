@@ -21,6 +21,18 @@
 		76B5C0132B5B71A200D8EB0F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5C0052B5B71A200D8EB0F /* NetworkManager.swift */; };
 		76B5C0142B5B71A200D8EB0F /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5C0062B5B71A200D8EB0F /* HTTPMethod.swift */; };
 		76B5C0172B5B71D700D8EB0F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5C0162B5B71D700D8EB0F /* LoginViewController.swift */; };
+		76B5C0192B5B7D5800D8EB0F /* InitialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5C0182B5B7D5800D8EB0F /* InitialViewModel.swift */; };
+		76B5C01B2B5B7F7E00D8EB0F /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5C01A2B5B7F7E00D8EB0F /* Guest.swift */; };
+		76B5C0202B5BB31B00D8EB0F /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 76B5C01F2B5BB31B00D8EB0F /* KeychainAccess */; };
+		76B5C0222B5BCBD800D8EB0F /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5C0212B5BCBD800D8EB0F /* LoginResponse.swift */; };
+		76B5C0252B5BD5EA00D8EB0F /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5C0242B5BD5EA00D8EB0F /* Binding.swift */; };
+		76B5C0272B5BDE1900D8EB0F /* EscapeRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5C0262B5BDE1900D8EB0F /* EscapeRoomViewController.swift */; };
+		76B5C02A2B5BDFC100D8EB0F /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5C0292B5BDFC100D8EB0F /* CustomCollectionViewCell.swift */; };
+		76B5C02D2B5BE14700D8EB0F /* EscapeRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5C02C2B5BE14700D8EB0F /* EscapeRoomViewModel.swift */; };
+		76B5C0302B5BE93D00D8EB0F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5C02F2B5BE93D00D8EB0F /* Router.swift */; };
+		76B5C0332B5BF33700D8EB0F /* EscapeRoomMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5C0322B5BF33700D8EB0F /* EscapeRoomMovies.swift */; };
+		76B5C0362B5BFC1600D8EB0F /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 76B5C0352B5BFC1600D8EB0F /* SDWebImage */; };
+		76B5C0382B5BFC1600D8EB0F /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 76B5C0372B5BFC1600D8EB0F /* SDWebImageMapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +52,15 @@
 		76B5C0052B5B71A200D8EB0F /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		76B5C0062B5B71A200D8EB0F /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		76B5C0162B5B71D700D8EB0F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		76B5C0182B5B7D5800D8EB0F /* InitialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewModel.swift; sourceTree = "<group>"; };
+		76B5C01A2B5B7F7E00D8EB0F /* Guest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Guest.swift; sourceTree = "<group>"; };
+		76B5C0212B5BCBD800D8EB0F /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		76B5C0242B5BD5EA00D8EB0F /* Binding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
+		76B5C0262B5BDE1900D8EB0F /* EscapeRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeRoomViewController.swift; sourceTree = "<group>"; };
+		76B5C0292B5BDFC100D8EB0F /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		76B5C02C2B5BE14700D8EB0F /* EscapeRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeRoomViewModel.swift; sourceTree = "<group>"; };
+		76B5C02F2B5BE93D00D8EB0F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		76B5C0322B5BF33700D8EB0F /* EscapeRoomMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscapeRoomMovies.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +68,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76B5C0362B5BFC1600D8EB0F /* SDWebImage in Frameworks */,
+				76B5C0382B5BFC1600D8EB0F /* SDWebImageMapKit in Frameworks */,
+				76B5C0202B5BB31B00D8EB0F /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,9 +96,11 @@
 		76B5BFE92B5B718600D8EB0F /* Cinergy-UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				76B5C02E2B5BE92400D8EB0F /* Router */,
+				76B5C0232B5BD5D100D8EB0F /* Binding */,
+				76B5BFFE2B5B71A200D8EB0F /* Utils */,
 				76B5C0002B5B71A200D8EB0F /* Network Layer */,
 				76B5C0072B5B71A200D8EB0F /* UI */,
-				76B5BFFE2B5B71A200D8EB0F /* Utils */,
 				76B5BFEA2B5B718600D8EB0F /* AppDelegate.swift */,
 				76B5BFEC2B5B718600D8EB0F /* SceneDelegate.swift */,
 				76B5BFEE2B5B718600D8EB0F /* ViewController.swift */,
@@ -119,6 +145,9 @@
 		76B5C0082B5B71A200D8EB0F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				76B5C0312B5BF32000D8EB0F /* Model */,
+				76B5C02B2B5BE0D200D8EB0F /* ViewModel */,
+				76B5C0282B5BDFA300D8EB0F /* View */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -136,6 +165,7 @@
 		76B5C00A2B5B71A200D8EB0F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				76B5C0182B5B7D5800D8EB0F /* InitialViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -143,6 +173,8 @@
 		76B5C00B2B5B71A200D8EB0F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				76B5C01A2B5B7F7E00D8EB0F /* Guest.swift */,
+				76B5C0212B5BCBD800D8EB0F /* LoginResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,6 +185,47 @@
 				76B5C0162B5B71D700D8EB0F /* LoginViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		76B5C0232B5BD5D100D8EB0F /* Binding */ = {
+			isa = PBXGroup;
+			children = (
+				76B5C0242B5BD5EA00D8EB0F /* Binding.swift */,
+			);
+			path = Binding;
+			sourceTree = "<group>";
+		};
+		76B5C0282B5BDFA300D8EB0F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				76B5C0262B5BDE1900D8EB0F /* EscapeRoomViewController.swift */,
+				76B5C0292B5BDFC100D8EB0F /* CustomCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		76B5C02B2B5BE0D200D8EB0F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				76B5C02C2B5BE14700D8EB0F /* EscapeRoomViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		76B5C02E2B5BE92400D8EB0F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				76B5C02F2B5BE93D00D8EB0F /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		76B5C0312B5BF32000D8EB0F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				76B5C0322B5BF33700D8EB0F /* EscapeRoomMovies.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +244,11 @@
 			dependencies = (
 			);
 			name = "Cinergy-UIKit";
+			packageProductDependencies = (
+				76B5C01F2B5BB31B00D8EB0F /* KeychainAccess */,
+				76B5C0352B5BFC1600D8EB0F /* SDWebImage */,
+				76B5C0372B5BFC1600D8EB0F /* SDWebImageMapKit */,
+			);
 			productName = "Cinergy-UIKit";
 			productReference = 76B5BFE72B5B718600D8EB0F /* Cinergy-UIKit.app */;
 			productType = "com.apple.product-type.application";
@@ -199,6 +277,10 @@
 				Base,
 			);
 			mainGroup = 76B5BFDE2B5B718600D8EB0F;
+			packageReferences = (
+				76B5C01E2B5BB31B00D8EB0F /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				76B5C0342B5BFC1600D8EB0F /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 76B5BFE82B5B718600D8EB0F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -228,14 +310,23 @@
 			files = (
 				76B5C0172B5B71D700D8EB0F /* LoginViewController.swift in Sources */,
 				76B5C0132B5B71A200D8EB0F /* NetworkManager.swift in Sources */,
+				76B5C0192B5B7D5800D8EB0F /* InitialViewModel.swift in Sources */,
 				76B5BFEF2B5B718600D8EB0F /* ViewController.swift in Sources */,
 				76B5BFEB2B5B718600D8EB0F /* AppDelegate.swift in Sources */,
 				76B5C00F2B5B71A200D8EB0F /* ApiHeaders.swift in Sources */,
+				76B5C0302B5BE93D00D8EB0F /* Router.swift in Sources */,
+				76B5C0252B5BD5EA00D8EB0F /* Binding.swift in Sources */,
+				76B5C0222B5BCBD800D8EB0F /* LoginResponse.swift in Sources */,
+				76B5C02A2B5BDFC100D8EB0F /* CustomCollectionViewCell.swift in Sources */,
+				76B5C0272B5BDE1900D8EB0F /* EscapeRoomViewController.swift in Sources */,
 				76B5C0122B5B71A200D8EB0F /* ApiEndPoints.swift in Sources */,
 				76B5BFED2B5B718600D8EB0F /* SceneDelegate.swift in Sources */,
 				76B5C00E2B5B71A200D8EB0F /* Constants.swift in Sources */,
+				76B5C01B2B5B7F7E00D8EB0F /* Guest.swift in Sources */,
 				76B5C0112B5B71A200D8EB0F /* ApiParameters.swift in Sources */,
 				76B5C0142B5B71A200D8EB0F /* HTTPMethod.swift in Sources */,
+				76B5C02D2B5BE14700D8EB0F /* EscapeRoomViewModel.swift in Sources */,
+				76B5C0332B5BF33700D8EB0F /* EscapeRoomMovies.swift in Sources */,
 				76B5C0102B5B71A200D8EB0F /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +550,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		76B5C01E2B5BB31B00D8EB0F /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		76B5C0342B5BFC1600D8EB0F /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.10;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		76B5C01F2B5BB31B00D8EB0F /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76B5C01E2B5BB31B00D8EB0F /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+		76B5C0352B5BFC1600D8EB0F /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76B5C0342B5BFC1600D8EB0F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		76B5C0372B5BFC1600D8EB0F /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76B5C0342B5BFC1600D8EB0F /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 76B5BFDF2B5B718600D8EB0F /* Project object */;
 }

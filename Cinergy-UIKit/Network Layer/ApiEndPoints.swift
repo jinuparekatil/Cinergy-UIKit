@@ -18,13 +18,13 @@ extension ApiEndPoints {
     var path: String {
         switch self {
         case .guestToken:
-            return "/guestToken"
+            return "api/guestToken"
         case .login:
-            return "/login"
+            return "api/login"
         case .escapeRoomMovies:
-            return "/escapeRoomMovies"
+            return "api/escapeRoomMovies"
         case .getMovieInfo:
-            return "/getMovieInfo"
+            return "api/getMovieInfo"
         }
     }
 }
