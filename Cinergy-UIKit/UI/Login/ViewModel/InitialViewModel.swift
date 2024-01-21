@@ -30,9 +30,7 @@ class InitialViewModel {
     func fetchPosts()  {
         Task.detached {
             do {
-                
-                
-                
+               
                 // Convert the parameters to JSON data
                 let parameters: [String: Any] = [
                     "secret_key": Constants.Urls.secretKey,

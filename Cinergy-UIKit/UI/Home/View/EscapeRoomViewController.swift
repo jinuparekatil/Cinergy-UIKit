@@ -57,18 +57,15 @@ extension EscapeRoomViewController: UICollectionViewDelegateFlowLayout {
         // Assuming you have a method to get the selected data from the viewModel
         let data = viewModel?.getMovie(index: indexPath.row)
 
-//        // Instantiate PopupViewController from the storyboard
-//        if let popupViewController = storyboard?.instantiateViewController(withIdentifier: "PopupViewController") as? PopupViewController {
-//            popupViewController.image = UIImage(named: data?.imageUrl ?? "")
-//            popupViewController.text = data?.description
-//            popupViewController.buttonTitle = "Action"
-
             // Instantiate the view controller to be presented
             let viewControllerToPresent = DetailViewController()
         if let viewControllerToPresent = storyboard?.instantiateViewController(withIdentifier: "DetailViewControllerId") as? DetailViewController {
             // Configure the sheet presentation controller
             if let data = viewModel?.getMovie(index: indexPath.row) {
-                viewControllerToPresent.movie = data
+//                viewControllerToPresent.movie = data
+                
+                navigateToDetailViewController(movieId: data.id)
+
             }
            
             viewControllerToPresent.presentationController?.delegate = self
@@ -76,9 +73,30 @@ extension EscapeRoomViewController: UICollectionViewDelegateFlowLayout {
             viewControllerToPresent.sheetPresentationController?.prefersGrabberVisible = true  // Show grabber
             
             // Present the view controller
-            self.present(viewControllerToPresent, animated: true)
+//            self.present(viewControllerToPresent, animated: true)
         }
         }
+    private func navigateToDetailViewController(movieId:String) {
+        let detailMovieViewModel = DetailMovieViewModel(movieId: movieId)
+        let router = Router()
+
+        DispatchQueue.main.async {
+            if let detailMovieViewController = router.getMovieDetailViewController(withIdentifier: "DetailViewControllerId", viewModel: detailMovieViewModel) {
+
+                // Wrap EscapeRoomViewController in a UINavigationController
+                
+                let navigationController = UINavigationController(rootViewController: detailMovieViewController)
+                
+                // Set the modal presentation style for the navigation controller
+//                navigationController.modalPresentationStyle = .formSheet
+                navigationController.presentationController?.delegate = self
+                navigationController.sheetPresentationController?.detents = [.medium()]  // Set preferred height
+                navigationController.sheetPresentationController?.prefersGrabberVisible = false  // Show grabber
+                // Present the navigation controller modally
+                self.present(navigationController, animated: false, completion: nil)
+            }
+        }
+    }
     }
 
 

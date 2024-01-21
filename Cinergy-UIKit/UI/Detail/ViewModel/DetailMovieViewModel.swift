@@ -1,46 +1,46 @@
 //
-//  EscapeRoomViewModel.swift
+//  DetailMovieViewModel.swift
 //  Cinergy-UIKit
 //
-//  Created by Jinu on 20/01/2024.
+//  Created by Jinu on 21/01/2024.
 //
 
 import Foundation
 import Combine
 import KeychainAccess
 
-
-class EscapeRoomViewModel {
-    @Published var movies: EscapeRoomMovies?
+class DetailMovieViewModel {
+    
+    @Published var movie: MovieDetail?
     @Published var errorMessage: String?
-    lazy var moviesCount: Int = {
-        return self.movies?.escapeRoomsMovies.count ?? 0
-        }()
-    var EscapeMovieListView: Binding<Bool> = Binding(false)
+    var movieId: String
+    init(movieId: String) {
+        self.movieId = movieId
+        fetchPosts()
+    }
 
     let baseURLString = Constants.Urls.baseURL
-    let apiEndPoint: ApiEndPoints = .escapeRoomMovies
+    let apiEndPoint: ApiEndPoints = .getMovieInfo
     private var method: HTTPMethod = .post
     
     private var cancellables: Set<AnyCancellable> = []
-    private var fetchDataSubject = PassthroughSubject<Guest, Error>()
-    var fetchDataPublisher: AnyPublisher<Guest, Error> {
+    private var fetchDataSubject = PassthroughSubject<MovieDetail, Error>()
+    var isMovieDetailView: Binding<Bool> = Binding(false)
+
+    var fetchDataPublisher: AnyPublisher<MovieDetail, Error> {
         return fetchDataSubject.eraseToAnyPublisher()
-    }
-    init() {
-        fetchPosts()
     }
     func fetchPosts()  {
         Task.detached {
             do {
+                
                 // Convert the parameters to JSON data
                 let parameters: [String: Any] = [
-                    "secret_key": Constants.Urls.secretKey,
+                    
                     "device_type": Constants.Urls.deviceType,
                     "device_id": Constants.Urls.devicId,
                     "location_id": Constants.Urls.locationId,
-                    "member_id": "\(Constants.Urls.userId ?? 0)",
-                    "userid": "\(Constants.Urls.userId ?? 0)",
+                    "movie_id": self.movieId,
                     "push_token": ""
                 ]
                 guard let jsonData = try? JSONSerialization.data(withJSONObject: parameters) else {
@@ -55,21 +55,40 @@ class EscapeRoomViewModel {
                     // Add the token to the Authorization header
                     let token = self.retrieveTokenFromKeychain()
                     request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-
-                    let fetchedPosts: EscapeRoomMovies = try await NetworkManager.fetchData(from: request)
-                    await MainActor.run {
-                        self.movies = fetchedPosts
-                        self.EscapeMovieListView.value = true
-                      
+                    do {
+                        let fetchedPosts: MovieDetail = try await NetworkManager.fetchData(from: request)
+                        
+                        self.movie = fetchedPosts
+                        
+                        self.fetchDataSubject.send(fetchedPosts)
+                        await MainActor.run {
+                            self.movie = fetchedPosts
+                            self.isMovieDetailView.value = true
+                        }
+                        
+                    } catch {
+                        // Handle the error
+                        print("Error: \(error)")
                     }
                     
-                }  // Handle the result
+                    
+                    
+                } else {
+                    // Handle the case where the URL couldn't be created (e.g., invalid baseURL or ApiEndPoints path)
+                    print("Error: Unable to create URL")
+                }
+                
+                
+                // Handle the result
             } catch {
                 // Ensure UI updates on the main thread
                 DispatchQueue.main.async {
                     self.errorMessage = error.localizedDescription
                 }
+                self.fetchDataSubject.send(completion: .failure(error))
+                
             }
+            
         }
     }
     // Function to retrieve the token from the keychain
@@ -84,11 +103,5 @@ class EscapeRoomViewModel {
                return nil
            }
        }
-    func getMovieCount() ->  Int {
-        return movies?.escapeRoomsMovies.count ?? 0
-    }
-    func getMovie(index: Int) ->  EscapeRoom? {
-        return movies?.escapeRoomsMovies[index]
-    }
     
 }

@@ -13,38 +13,55 @@ class DetailViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleText: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var runTimeLabel: UILabel!
     @IBOutlet weak var upToNummberOfMembersLabel: UILabel!
     @IBOutlet weak var detailText: UITextView!
 
     // MARK: - Properties
-    
-    var movie: EscapeRoom?
+    var viewModel: DetailMovieViewModel?
+    var  movie: MovieInfo?
+
+//    var movie: EscapeRoom?
 
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        arrangeView()
+      
+        setupViews()
     }
-
+   
     // MARK: - UI Setup
     
     private func arrangeView() {
-        setupLabels()
-        setupImageView()
+            setupLabels()
+            setupImageView()
     }
+    private func setupViews(){
+        if let viewModel = self.viewModel {
+            
+            viewModel.isMovieDetailView.bindAndFire { [weak self] success in
+                if success {
+                    self?.movie = viewModel.movie?.movieInfo
+                    self?.setupLabels()
+                    self?.setupImageView()
+                }
+            }
 
+            
+        }
+    }
     private func setupLabels() {
-        titleText.text = movie?.title
-        runTimeLabel.text = "\(movie?.runTime ?? "0") mins"
-        detailText.text = movie?.synopsis
+//        print(viewModel?.movie)
+        titleLabel.text =  self.movie?.title
+        runTimeLabel.text = "\(self.movie?.runTime ?? "0") mins"
+        detailText.text = self.movie?.synopsis
     }
 
     private func setupImageView() {
         // Safely set the image only if the URL is valid
-        if let url = URL(string: movie?.imageUrl ?? "") {
+        if let url = URL(string: self.movie?.imageURL ?? "") {
             imageView.sd_setImage(with: url, completed: nil)
         }
     }
@@ -52,7 +69,22 @@ class DetailViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func bookNowButtonPressed(_ sender: Any) {
-        // Handle book now button press
+   
+        bookVieCotroller()
+        
+    }
+    
+    private func bookVieCotroller(){
+        let bookMovieViewModel = MovieBookingViewModel(movie: (self.movie)!)
+        let router = Router()
+
+        DispatchQueue.main.async {
+            if let detailMovieViewController = router.getMovieDetailsVCViewController(withIdentifier: "BookViewControllerId", viewModel: bookMovieViewModel) {
+                
+                detailMovieViewController.modalPresentationStyle = .fullScreen
+                self.present(detailMovieViewController, animated: false, completion: nil)
+            }
+        }
     }
 
     @IBAction func moreInfoButtonPressed(_ sender: Any) {
