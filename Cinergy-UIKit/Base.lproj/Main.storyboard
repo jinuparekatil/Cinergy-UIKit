@@ -217,7 +217,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOq-v6-rVN">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="851"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dB-d7-vn0">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dB-d7-vn0">
                                         <rect key="frame" x="8" y="760" width="241" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="rHS-pF-bMB"/>
@@ -350,6 +350,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bookNowButton" destination="3dB-d7-vn0" id="ZtB-VZ-RC4"/>
                         <outlet property="detailText" destination="LYl-ax-bsu" id="rlJ-8w-V8L"/>
                         <outlet property="imageView" destination="5YD-eM-poc" id="BdY-er-h1K"/>
                         <outlet property="runTimeLabel" destination="ufk-aR-EyY" id="1ns-dm-yeK"/>

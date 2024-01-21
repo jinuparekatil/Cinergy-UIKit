@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var upToNummberOfMembersLabel: UILabel!
     @IBOutlet weak var detailText: UITextView!
 
+    @IBOutlet weak var bookNowButton: UIButton!
     // MARK: - Properties
     var viewModel: DetailMovieViewModel?
     var  movie: MovieInfo?
@@ -35,8 +36,8 @@ class DetailViewController: UIViewController {
     // MARK: - UI Setup
     
     private func arrangeView() {
-            setupLabels()
-            setupImageView()
+//            setupLabels()
+//            setupImageView()
     }
     private func setupViews(){
         if let viewModel = self.viewModel {
@@ -45,6 +46,7 @@ class DetailViewController: UIViewController {
                 if success {
                     self?.movie = viewModel.movie?.movieInfo
                     self?.setupLabels()
+                    self?.bookNowButton.isEnabled = true
                     self?.setupImageView()
                 }
             }
