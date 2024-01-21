@@ -89,7 +89,7 @@ class BookViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collectionView == dateCollectionView ? viewModel?.getDateCount() ?? 0 : viewModel?.gettimeCount() ?? 0
+        return collectionView == dateCollectionView ? viewModel?.getDateCount() ?? 0 : viewModel?.getTimeCount() ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -97,6 +97,10 @@ class BookViewController: UIViewController, UICollectionViewDataSource, UICollec
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DateCell", for: indexPath) as! DateCell
             cell.weekLabel.text = viewModel?.getWeek(index: indexPath.row)
             cell.dateLabel.text = viewModel?.getDate(index: indexPath.row)
+            cell.isSelected = viewModel!.dateSelectedIndex == indexPath.row
+            cell.contentView.backgroundColor = viewModel!.dateSelectedIndex == indexPath.row ?
+                UIColor(red: 162/255, green: 198/255, blue: 88/255, alpha: 0.8) : UIColor.clear
+
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TimeCell", for: indexPath) as! TimeCell

@@ -27,12 +27,27 @@ class MovieBookingViewModel {
     
     // MARK: Public Methods
     
+    func setDateForSelectedIndex(index: Int) {
+        dateSelectedIndex = index
+        isClickedDate.value = true
+    }
+    
+    func setTimeForSelectedIndex(index: Int) {
+        timeSelectedIndex = index
+    }
+    
+   
+    func getShowTime(index: Int) -> String {
+        return movie.showTimes[dateSelectedIndex].sessions[index].showtime
+    }
+    
     func getDateCount() -> Int {
         return movie.dateList.count
     }
     
-    func gettimeCount() -> Int {
-        return movie.showTimes.count
+    func getTimeCount() -> Int {
+        return movie.showTimes[dateSelectedIndex].sessions.count
+
     }
     
     func getWeek(index: Int) -> String {
@@ -57,20 +72,5 @@ class MovieBookingViewModel {
         return ""
     }
     
-    func setDateForSelectedIndex(index: Int) {
-        dateSelectedIndex = index
-        isClickedDate.value = true
-    }
-    
-    func setTimeForSelectedIndex(index: Int) {
-        timeSelectedIndex = index
-    }
-    
-    func getNoOfshowTimes() -> Int {
-        return movie.showTimes[dateSelectedIndex].sessions.count
-    }
-    
-    func getShowTime(index: Int) -> String {
-        return movie.showTimes[dateSelectedIndex].sessions[index].showtime
-    }
+   
 }
