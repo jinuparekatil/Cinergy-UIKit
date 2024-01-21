@@ -61,7 +61,7 @@ class LoginViewController: UIViewController {
         // Create a UILabel for the text
         let textLabel = UILabel()
         textLabel.text = text
-        textLabel.numberOfLines = 0  // Allow multiple lines
+        textLabel.numberOfLines = 2  // Allow multiple lines
         textLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)  // Allow the text to expand horizontally
         textLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)  // Allow the text to be compressed when necessary
 

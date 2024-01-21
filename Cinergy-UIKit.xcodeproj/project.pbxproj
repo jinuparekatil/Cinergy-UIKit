@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76B139932B5CAFD900804165 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B139922B5CAFD900804165 /* DetailViewController.swift */; };
 		76B5BFEB2B5B718600D8EB0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5BFEA2B5B718600D8EB0F /* AppDelegate.swift */; };
 		76B5BFED2B5B718600D8EB0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5BFEC2B5B718600D8EB0F /* SceneDelegate.swift */; };
 		76B5BFEF2B5B718600D8EB0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B5BFEE2B5B718600D8EB0F /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76B139922B5CAFD900804165 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		76B5BFE72B5B718600D8EB0F /* Cinergy-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cinergy-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B5BFEA2B5B718600D8EB0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76B5BFEC2B5B718600D8EB0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76B1398D2B5CAF5C00804165 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				76B1398F2B5CAF8900804165 /* View */,
+				76B139912B5CAFAE00804165 /* ViewModel */,
+				76B139902B5CAFA300804165 /* Model */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		76B1398E2B5CAF7900804165 /* Booking Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Booking Confirmation";
+			sourceTree = "<group>";
+		};
+		76B1398F2B5CAF8900804165 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				76B139922B5CAFD900804165 /* DetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		76B139902B5CAFA300804165 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		76B139912B5CAFAE00804165 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		76B5BFDE2B5B718600D8EB0F = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +177,8 @@
 		76B5C0072B5B71A200D8EB0F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				76B1398E2B5CAF7900804165 /* Booking Confirmation */,
+				76B1398D2B5CAF5C00804165 /* Detail */,
 				76B5C0082B5B71A200D8EB0F /* Home */,
 				76B5C0092B5B71A200D8EB0F /* Login */,
 			);
@@ -314,6 +357,7 @@
 				76B5BFEF2B5B718600D8EB0F /* ViewController.swift in Sources */,
 				76B5BFEB2B5B718600D8EB0F /* AppDelegate.swift in Sources */,
 				76B5C00F2B5B71A200D8EB0F /* ApiHeaders.swift in Sources */,
+				76B139932B5CAFD900804165 /* DetailViewController.swift in Sources */,
 				76B5C0302B5BE93D00D8EB0F /* Router.swift in Sources */,
 				76B5C0252B5BD5EA00D8EB0F /* Binding.swift in Sources */,
 				76B5C0222B5BCBD800D8EB0F /* LoginResponse.swift in Sources */,
