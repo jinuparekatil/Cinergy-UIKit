@@ -12,8 +12,8 @@ class TimeCell: UICollectionViewCell {
     @IBOutlet weak var timeLabel: UILabel!
 
     @IBOutlet weak var view: UIView!
-    func configure(with timeModel: TimeModel) {
-        timeLabel.text = timeModel.time
-        // Customize appearance as needed
-    }
+//    func configure(with timeModel: TimeModel) {
+//        timeLabel.text = timeModel.time
+//        // Customize appearance as needed
+//    }
 }

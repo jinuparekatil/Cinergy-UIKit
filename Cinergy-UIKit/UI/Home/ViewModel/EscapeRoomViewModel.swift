@@ -10,27 +10,50 @@ import Combine
 import KeychainAccess
 
 
-class EscapeRoomViewModel {
+import Foundation
+import Combine
+
+// MARK: - EscapeRoomViewModel
+
+class EscapeRoomViewModel: ObservableObject {
+    
+    // MARK: Published Properties
+    
     @Published var movies: EscapeRoomMovies?
     @Published var errorMessage: String?
+    
+    // MARK: Other Properties
+    
     lazy var moviesCount: Int = {
         return self.movies?.escapeRoomsMovies.count ?? 0
-        }()
+    }()
+    
     var EscapeMovieListView: Binding<Bool> = Binding(false)
-
+    
+    // MARK: API Configuration
+    
     let baseURLString = Constants.Urls.baseURL
     let apiEndPoint: ApiEndPoints = .escapeRoomMovies
     private var method: HTTPMethod = .post
     
+    // MARK: Combine
+    
     private var cancellables: Set<AnyCancellable> = []
     private var fetchDataSubject = PassthroughSubject<Guest, Error>()
+    
     var fetchDataPublisher: AnyPublisher<Guest, Error> {
         return fetchDataSubject.eraseToAnyPublisher()
     }
+    
+    // MARK: Initialization
+    
     init() {
         fetchPosts()
     }
-    func fetchPosts()  {
+    
+    // MARK: Public Methods
+    
+    func fetchPosts() {
         Task.detached {
             do {
                 // Convert the parameters to JSON data
@@ -52,17 +75,17 @@ class EscapeRoomViewModel {
                     request.httpMethod = self.method.rawValue
                     request.httpBody = jsonData
                     request.allHTTPHeaderFields = Constants.Urls.header
+                    
                     // Add the token to the Authorization header
                     let token = self.retrieveTokenFromKeychain()
                     request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 
                     let fetchedPosts: EscapeRoomMovies = try await NetworkManager.fetchData(from: request)
+                    
                     await MainActor.run {
                         self.movies = fetchedPosts
                         self.EscapeMovieListView.value = true
-                      
                     }
-                    
                 }  // Handle the result
             } catch {
                 // Ensure UI updates on the main thread
@@ -72,23 +95,23 @@ class EscapeRoomViewModel {
             }
         }
     }
+    
     // Function to retrieve the token from the keychain
-       func retrieveTokenFromKeychain() -> String? {
-           do {
-              
-               let token = try Keychain(service: Constants.Urls.keyChainKey).get("authToken")
-
-               return token
-           } catch {
-               print("Error retrieving token from keychain: \(error)")
-               return nil
-           }
-       }
-    func getMovieCount() ->  Int {
-        return movies?.escapeRoomsMovies.count ?? 0
-    }
-    func getMovie(index: Int) ->  EscapeRoom? {
-        return movies?.escapeRoomsMovies[index]
+    func retrieveTokenFromKeychain() -> String? {
+        do {
+            let token = try Keychain(service: Constants.Urls.keyChainKey).get("authToken")
+            return token
+        } catch {
+            print("Error retrieving token from keychain: \(error)")
+            return nil
+        }
     }
     
+    func getMovieCount() -> Int {
+        return movies?.escapeRoomsMovies.count ?? 0
+    }
+    
+    func getMovie(index: Int) -> EscapeRoom? {
+        return movies?.escapeRoomsMovies[index]
+    }
 }
